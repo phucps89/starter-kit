@@ -3,11 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {Route, extract, AuthenticationGuard} from '@app/core';
 import { HomeComponent } from './home.component';
+import {BlogComponent} from '@app/home/blog/blog.component';
+import {ArticleComponent} from '@app/home/article/article.component';
+import {ContactComponent} from '@app/home/contact/contact.component';
 
 const routes: Routes = [
   Route.withShell([
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, data: { title: extract('Home') } }
+    { path: '', redirectTo: 'blog', pathMatch: 'full' },
+    { path: '', component: HomeComponent, children: [
+        { path: 'blog', component: BlogComponent, data: { title: extract('Home') } },
+        { path: 'article', component: ArticleComponent, data: { title: extract('Article') } },
+        { path: 'contact', component: ContactComponent, data: { title: extract('Contact') } },
+      ] },
   ])
 ];
 
