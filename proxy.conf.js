@@ -12,7 +12,7 @@ const proxyConfig = [
   {
     context: '/api',
     pathRewrite: { '^/api': '' },
-    target: 'https://api.chucknorris.io',
+    target: 'https://apigw.seldatdirect.com/qc/sel2b-nab/api/api/v1',
     changeOrigin: true,
     secure: false
   }

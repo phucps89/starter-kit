@@ -7,7 +7,7 @@ import { filter, map, mergeMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 import { Logger, I18nService } from '@app/core';
-
+import { Spinkit } from 'ng-http-loader';
 const log = new Logger('App');
 
 @Component({
@@ -16,7 +16,7 @@ const log = new Logger('App');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  public spinkit = Spinkit;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
