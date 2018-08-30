@@ -11,7 +11,12 @@ declare var $: any;
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: [
-    '../../assets/go_menu/go_menu.scss',
+    // '../../assets/go_menu/go_menu.scss',
+    '../../assets/juli/common-css/bootstrap.css',
+    '../../assets/juli/common-css/ionicons.css',
+    '../../assets/juli/common-css/layerslider.css',
+    '../../assets/juli/common-css/01-homepage/css/styles.css',
+    '../../assets/juli/common-css/01-homepage/css/responsive.css',
     './home.component.scss',
   ]
 })
@@ -23,10 +28,7 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private http: HttpService, private script: ScriptService) {
-    this.script.load('go_menu').then(data => {
-      console.log('script loaded ', data);
-      new gnMenu( document.getElementById( 'gn-menu' ) );
-    }).catch(error => console.log(error));
+
   }
 
   ngOnInit() {
@@ -34,7 +36,8 @@ export class HomeComponent implements OnInit {
     // this.quoteService.getRandomQuote({ category: 'dev' })
     //   .pipe(finalize(() => { this.isLoading = false; }))
     //   .subscribe((quote: string) => { this.quote = quote; console.log(quote) });
-
+    this.script.load('fe_scripts').then(data => {
+    }).catch(error => console.log(error));
   }
 
   getReference() {

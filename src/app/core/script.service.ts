@@ -8,6 +8,7 @@ interface Scripts {
 }
 export const ScriptStore: Scripts[] = [
   {name: 'go_menu', src: '../../assets/go_menu/go_menu.js'},
+  {name: 'fe_scripts', src: '../../assets/juli/common-js/scripts.js'},
 ];
 
 @Injectable()
