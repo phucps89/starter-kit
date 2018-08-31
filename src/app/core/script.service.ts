@@ -7,8 +7,9 @@ interface Scripts {
   src: string;
 }
 export const ScriptStore: Scripts[] = [
-  {name: 'go_menu', src: '../../assets/go_menu/go_menu.js'},
-  {name: 'fe_scripts', src: '../../assets/juli/common-js/scripts.js'},
+  // {name: 'go_menu', src: '../../assets/go_menu/go_menu.js'},
+  // {name: 'fe_scripts', src: '../../assets/juli/common-js/scripts.js'},
+  // {name: 'admin_fastclick', src: '/node_modules/gentelella/vendors/fastclick/lib/fastclick.js'},
 ];
 
 @Injectable()

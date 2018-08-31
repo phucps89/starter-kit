@@ -12,7 +12,7 @@ const proxyConfig = [
   {
     context: '/api',
     pathRewrite: { '^/api': '' },
-    target: 'https://apigw.seldatdirect.com/qc/sel2b-nab/api/api/v1',
+    target: 'http://phucapi.local',
     changeOrigin: true,
     secure: false
   }

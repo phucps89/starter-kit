@@ -15,6 +15,7 @@ import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {NgHttpLoaderModule} from 'ng-http-loader';
+import {AdminModule} from '@app/admin/admin.module';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import {NgHttpLoaderModule} from 'ng-http-loader';
     CoreModule,
     SharedModule,
     HomeModule,
+    AdminModule,
     AboutModule,
     LoginModule,
     AppRoutingModule,

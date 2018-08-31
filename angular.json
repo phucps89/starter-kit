@@ -27,13 +27,14 @@
               "src/apple-touch-icon.png",
               "src/robots.txt",
               "src/manifest.json",
-              "src/assets"
+              "src/assets",
             ],
             "styles": [
               "src/main.scss"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js"
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
           "configurations": {

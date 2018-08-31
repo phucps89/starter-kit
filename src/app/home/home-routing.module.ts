@@ -9,9 +9,9 @@ import {ContactComponent} from '@app/home/contact/contact.component';
 
 const routes: Routes = [
   Route.withShell([
-    { path: '', redirectTo: 'blog', pathMatch: 'full' },
+    // { path: '', redirectTo: 'blog', pathMatch: 'full' },
     { path: '', component: HomeComponent, children: [
-        { path: 'blog', component: BlogComponent, data: { title: extract('Home') } },
+        { path: '', component: BlogComponent, data: { title: extract('Home') } },
         { path: 'article', component: ArticleComponent, data: { title: extract('Article') } },
         { path: 'contact', component: ContactComponent, data: { title: extract('Contact') } },
       ] },

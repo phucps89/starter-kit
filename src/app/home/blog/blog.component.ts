@@ -16,8 +16,6 @@ declare var $: any;
 
 export class BlogComponent implements OnInit {
 
-
-
   constructor(private http: HttpService, private script: ScriptService) {
 
   }

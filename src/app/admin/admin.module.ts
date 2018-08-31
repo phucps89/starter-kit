@@ -4,15 +4,11 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
 import {HttpService} from '@app/core/http/http.service';
 import {ScriptService} from '@app/core/script.service';
-import {BlogComponent} from '@app/home/blog/blog.component';
-import {ArticleComponent} from '@app/home/article/article.component';
-import {ContactComponent} from '@app/home/contact/contact.component';
 import {BrowserModule} from '@angular/platform-browser';
+import {AdminComponent} from '@app/admin/admin.component';
+import {AdminRoutingModule} from '@app/admin/admin-routing.module';
 
 @NgModule({
   imports: [
@@ -20,17 +16,14 @@ import {BrowserModule} from '@angular/platform-browser';
     TranslateModule,
     CoreModule,
     SharedModule,
-    HomeRoutingModule,
+    AdminRoutingModule,
     BrowserModule,
   ],
   declarations: [
-    HomeComponent,
-    BlogComponent,
-    ArticleComponent,
-    ContactComponent,
+    AdminComponent
   ],
   providers: [
-    QuoteService, HttpService, ScriptService
+    HttpService, ScriptService
   ]
 })
-export class HomeModule { }
+export class AdminModule { }
