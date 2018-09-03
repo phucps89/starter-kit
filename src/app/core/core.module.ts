@@ -16,6 +16,8 @@ import { HttpCacheService } from './http/http-cache.service';
 import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
 import { CacheInterceptor } from './http/cache.interceptor';
+import {AdminAuthGuard} from '@app/core/admin_auth/adminauth.guard';
+import {AdminHttpInterceptor} from '@app/core/http/adminhttp.interceptor';
 
 @NgModule({
   imports: [
@@ -32,9 +34,11 @@ import { CacheInterceptor } from './http/cache.interceptor';
   providers: [
     AuthenticationService,
     AuthenticationGuard,
+    AdminAuthGuard,
     I18nService,
     HttpCacheService,
     ApiPrefixInterceptor,
+    AdminHttpInterceptor,
     ErrorHandlerInterceptor,
     CacheInterceptor,
     {

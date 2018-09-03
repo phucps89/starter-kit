@@ -1,0 +1,31 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Category list
+  </h1>
+  <ol class="breadcrumb">
+    <li><a routerLink="/admin"><i class="fa fa-dashboard "></i> Home</a></li>
+    <li><a><i class="fa fa-book active"></i> Category</a></li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <label>{{(categoryPage$ | async)?.per_page}}</label>
+  <ngx-datatable
+    class="material"
+    [rows]="categories"
+    [columns]="columns"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [externalPaging]="true"
+    [count]="(categoryPage$ | async)?.total"
+    [offset]="(categoryPage$ | async)?.current_page"
+    [limit]="(categoryPage$ | async)?.per_page"
+    (page)='setPage($event)'>
+  </ngx-datatable>
+
+</section>
+<!-- /.content -->

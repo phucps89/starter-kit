@@ -64,12 +64,13 @@ export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HT
 @Injectable()
 export class HttpService extends HttpClient {
 
-  constructor(private httpHandler: HttpHandler,
-              private injector: Injector,
-              @Optional() @Inject(HTTP_DYNAMIC_INTERCEPTORS) private interceptors: HttpInterceptor[] = []) {
+  constructor(protected httpHandler: HttpHandler,
+              protected injector: Injector,
+              @Optional() @Inject(HTTP_DYNAMIC_INTERCEPTORS) protected interceptors: HttpInterceptor[] = []) {
     super(httpHandler);
 
     if (!this.interceptors) {
+      console.log(this.interceptors);
       // Configure default interceptors that can be disabled here
       this.interceptors = [
         this.injector.get(ApiPrefixInterceptor),
@@ -100,7 +101,7 @@ export class HttpService extends HttpClient {
     return new HttpClient(handler).request(method, url, options);
   }
 
-  private removeInterceptor(interceptorType: Function): HttpService {
+  protected removeInterceptor(interceptorType: Function): HttpService {
     return new HttpService(
       this.httpHandler,
       this.injector,
@@ -108,7 +109,7 @@ export class HttpService extends HttpClient {
     );
   }
 
-  private addInterceptor(interceptor: HttpInterceptor): HttpService {
+  protected addInterceptor(interceptor: HttpInterceptor): HttpService {
     return new HttpService(
       this.httpHandler,
       this.injector,

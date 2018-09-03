@@ -1,0 +1,45 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic js-tilt" data-tilt>
+        <img src="assets/img-01.png" alt="IMG">
+      </div>
+
+      <form class="login100-form validate-form" (ngSubmit)="login()" [formGroup]="loginForm">
+					<span class="login100-form-title">
+						Member Login
+					</span>
+
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+          <input class="input100" type="text" formControlName="email" name="email" placeholder="Email">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback" style="margin-top: -8px; padding-left: 3rem; margin-bottom: 2rem">
+          <div *ngIf="submitted && f.email.errors.required" class="text-danger">Email is required</div>
+          <div *ngIf="submitted && f.email.errors.email" class="text-danger">Email is invalid</div>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input class="input100" type="password" formControlName="password" name="password" placeholder="Password">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+        </div>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback" style="margin-top: -8px; padding-left: 3rem">
+          <div *ngIf="submitted && f.password.errors.required" class="text-danger">Password is required</div>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn">
+            Login
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

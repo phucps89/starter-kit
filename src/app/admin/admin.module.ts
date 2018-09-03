@@ -9,6 +9,12 @@ import {ScriptService} from '@app/core/script.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {AdminComponent} from '@app/admin/admin.component';
 import {AdminRoutingModule} from '@app/admin/admin-routing.module';
+import {DashboardComponent} from '@app/admin/dashboard/dashboard.component';
+import {AdminHttpService} from '@app/core/http/adminhttp.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AdminHttpErrorInterceptor} from '@app/core/http/adminhttperror.interceptor';
+import {CategoryListComponent} from '@app/admin/category/list/category.list.component';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
@@ -18,12 +24,20 @@ import {AdminRoutingModule} from '@app/admin/admin-routing.module';
     SharedModule,
     AdminRoutingModule,
     BrowserModule,
+    NgxDatatableModule,
   ],
   declarations: [
-    AdminComponent
+    AdminComponent,
+    DashboardComponent,
+    CategoryListComponent,
   ],
   providers: [
-    HttpService, ScriptService
+    HttpService, ScriptService, AdminHttpService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AdminHttpErrorInterceptor,
+      multi: true,
+    }
   ]
 })
 export class AdminModule { }

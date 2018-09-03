@@ -3,11 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {Route, extract, AuthenticationGuard} from '@app/core';
 import {AdminComponent} from '@app/admin/admin.component';
+import {DashboardComponent} from '@app/admin/dashboard/dashboard.component';
+import {AdminAuthGuard} from '@app/core/admin_auth/adminauth.guard';
+import {CategoryListComponent} from '@app/admin/category/list/category.list.component';
 
 const routes: Routes = [
   Route.withShell([
-    // { path: '', redirectTo: 'blog', pathMatch: 'full' },
-    { path: 'admin', component: AdminComponent, data: { title: extract('Admin') }},
+    // { path: 'admin/**', redirectTo: 'admin', pathMatch: 'full' },
+    { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard], children: [
+        { path: '', component: DashboardComponent, data: { title: extract('Dashboard') } },
+        { path: 'category', component: CategoryListComponent, data: { title: extract('Category list') } },
+      ]},
   ])
 ];
 

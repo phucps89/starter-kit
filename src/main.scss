@@ -7,12 +7,16 @@
 @import "theme/theme-variables";
 
 // 3rd party libraries
-//@import "~bootstrap/scss/bootstrap";
-@import "~admin-lte/bower_components/bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+//@import "~admin-lte/bower_components/bootstrap/dist/css/bootstrap.css";
 //@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 //@import "~@fortawesome/fontawesome-free/scss/fa-brands.scss";
 //@import "~@fortawesome/fontawesome-free/scss/fa-regular.scss";
 //@import "~@fortawesome/fontawesome-free/scss/fa-solid.scss";
+
+@import '~ngx-toastr/toastr.css';
+
+
 
 // Theme customization
 @import "theme/theme";
