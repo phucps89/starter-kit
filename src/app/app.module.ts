@@ -17,7 +17,8 @@ import {AdminModule} from '@app/admin/admin.module';
 import {AdminloginModule} from '@app/adminlogin/adminlogin.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {AccordionModule} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
     HomeModule,
     AdminModule,
     AdminloginModule,
-    NgxDatatableModule,
+    AccordionModule,
+    TableModule,
     AppRoutingModule,
     NgHttpLoaderModule
   ],

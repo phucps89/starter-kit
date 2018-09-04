@@ -185,9 +185,9 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
-          <li [ngClass]="{'active': isActive('') }"><a routerLink="admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li [ngClass]="{'active': isActive('/category') }" class="treeview">
-            <a href="#">
+          <li [ngClass]="{'active': isActive('') }"><a routerLink="/admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li [ngClass]="{'active': isActive('/category') || isActive('/category/:id') }" class="treeview">
+            <a href="javascript:;">
               <i class="fa fa-book"></i> <span>Category</span>
               <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

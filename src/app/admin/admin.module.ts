@@ -14,7 +14,9 @@ import {AdminHttpService} from '@app/core/http/adminhttp.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AdminHttpErrorInterceptor} from '@app/core/http/adminhttperror.interceptor';
 import {CategoryListComponent} from '@app/admin/category/list/category.list.component';
-import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {AccordionModule} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
+import {CategoryCreateUpdateComponent} from '@app/admin/category/create_update/category.create.update.component';
 
 @NgModule({
   imports: [
@@ -24,12 +26,14 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
     SharedModule,
     AdminRoutingModule,
     BrowserModule,
-    NgxDatatableModule,
+    AccordionModule,
+    TableModule,
   ],
   declarations: [
     AdminComponent,
     DashboardComponent,
     CategoryListComponent,
+    CategoryCreateUpdateComponent,
   ],
   providers: [
     HttpService, ScriptService, AdminHttpService,

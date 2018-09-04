@@ -6,6 +6,7 @@ import {AdminComponent} from '@app/admin/admin.component';
 import {DashboardComponent} from '@app/admin/dashboard/dashboard.component';
 import {AdminAuthGuard} from '@app/core/admin_auth/adminauth.guard';
 import {CategoryListComponent} from '@app/admin/category/list/category.list.component';
+import {CategoryCreateUpdateComponent} from '@app/admin/category/create_update/category.create.update.component';
 
 const routes: Routes = [
   Route.withShell([
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard], children: [
         { path: '', component: DashboardComponent, data: { title: extract('Dashboard') } },
         { path: 'category', component: CategoryListComponent, data: { title: extract('Category list') } },
+        { path: 'category/:id', component: CategoryCreateUpdateComponent, data: { title: extract('Category edit') } },
       ]},
   ])
 ];

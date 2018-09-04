@@ -4,6 +4,7 @@ import {HttpService} from '@app/core/http/http.service';
 import {ScriptService} from '@app/core/script.service';
 import {Router} from '@angular/router';
 import {AdminHttpService} from '@app/core/http/adminhttp.service';
+import {isArray, isString} from 'util';
 
 require('../../../node_modules/admin-lte/bower_components/jquery/dist/jquery.min.js');
 require('../../../node_modules/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js');
@@ -58,12 +59,16 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  isActive(instruction: string): boolean {
-    return this.router.isActive('/admin' + instruction, true);
+  isActive(instruction: any): boolean {
+    if (isString(instruction)) {
+      return this.router.isActive('/admin' + instruction, true);
+    } else if (isArray(instruction)) {
+      //return this.router.isActive([...['admin'], ...instruction], { type: 'intersection' });
+    }
   }
 
   ngOnInit() {
-    $('.navbar-custom-menu .navbar-nav .dropdown').click(function(){
+    $('.navbar-custom-menu .navbar-nav .dropdown').click(function() {
       $(this).toggleClass('open');
     });
     // remove class body
