@@ -70,7 +70,6 @@ export class HttpService extends HttpClient {
     super(httpHandler);
 
     if (!this.interceptors) {
-      console.log(this.interceptors);
       // Configure default interceptors that can be disabled here
       this.interceptors = [
         this.injector.get(ApiPrefixInterceptor),

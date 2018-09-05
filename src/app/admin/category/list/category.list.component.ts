@@ -65,7 +65,6 @@ export class CategoryListComponent implements OnInit {
   }
 
   loadCarsLazy($event: LazyLoadEvent) {
-    console.log($event);
     const filters = {};
     Object.keys($event.filters).forEach(key => {
       if ($event.filters[key].value.target.value !== '') {

@@ -2,7 +2,7 @@ import {Component, ElementRef, Inject, OnInit} from '@angular/core';
 import {finalize} from 'rxjs/operators';
 import {HttpService} from '@app/core/http/http.service';
 import {ScriptService} from '@app/core/script.service';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {AdminHttpService} from '@app/core/http/adminhttp.service';
 import {isArray, isString} from 'util';
 
@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
     // body.classList.add('skin-blue');
     // body.classList.add('fixed');
     // body.classList.add('sidebar-mini');
-    this.adminHttp.get('/user').subscribe( (res: any) => {
+    this.adminHttp.get('/user').subscribe((res: any) => {
       this.user = res.data;
     }, (error: any) => {
     });
@@ -67,8 +67,14 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  isActiveRoute(route: string): boolean {
+    console.log(this.router.serializeUrl(this.router.parseUrl(this.router.url)));
+    console.log(this.router.serializeUrl((this.router.createUrlTree([route]))));
+    return this.router.serializeUrl(this.router.parseUrl(window.location.toString())) === this.router.serializeUrl((this.router.createUrlTree([route])));
+  }
+
   ngOnInit() {
-    $('.navbar-custom-menu .navbar-nav .dropdown').click(function() {
+    $('.navbar-custom-menu .navbar-nav .dropdown').click(function () {
       $(this).toggleClass('open');
     });
     // remove class body
